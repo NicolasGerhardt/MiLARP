@@ -11,38 +11,32 @@ namespace MiLARP.UI;
 
 public partial class EditSkillControl : UserControl
 {
-    public Skill Skill { get; set; }
+    public Skill? Skill { get; set; }
     private readonly MainWindow _mainWindow;
 
-    public EditSkillControl(MainWindow mainWindow, Skill skill = null)
+    public EditSkillControl(MainWindow mainWindow, Skill? skill = null)
     {
         _mainWindow = mainWindow;
-        
-        if (skill is null)
-        {
-            skill = new Skill {Id = -1, Name = "Unnamed Skill"};
-        }
         InitializeComponent();
 
-        Skill = skill;
-        UpdatePanel();
+        Skill = skill ?? new Skill {Id = -1, Name = "Unnamed Skill"};
+        UpdateControlView();
     }
 
-    private void UpdatePanel()
+    private void UpdateControlView()
     {
+        if (Skill is null) return;
+
         lblId.Content = Skill.Id;
         tbName.Text = Skill.Name;
         tbDescription.Text = Skill.Description;
         tbNotes.Text = Skill.Notes;
         SkillTagStackPanel.Children.Clear();
-        if (Skill.Tags is not null && Skill.Tags.Count > 0)
+        if (Skill?.Tags is not null)
         {
             foreach (var tag in Skill.Tags)
             {
-                if (tag is not null)
-                {
-                    SkillTagStackPanel.Children.Add(new SkillTagControl(this, tag));
-                }
+                SkillTagStackPanel.Children.Add(new SkillTagControl(this, tag));
             }
         }
 
@@ -59,23 +53,28 @@ public partial class EditSkillControl : UserControl
 
     private void btnAddTagToSkill_OnClick(object sender, RoutedEventArgs e)
     {
-        var result = Interaction.InputBox("Tag Name", "Add Tag");
+        var result = Interaction.InputBox("Tag Name", "Add Tag").Trim().Replace(' ', '-');
+
         if (!string.IsNullOrWhiteSpace(result))
         {
             if (Skill.Tags is null) Skill.Tags = new List<Tag>();
             Skill.Tags.Add(new Tag {Text = result});
         }
-        UpdatePanel();
+
+        UpdateControlView();
     }
 
     private void btnSave_OnClick(object sender, RoutedEventArgs e)
     {
+        Skill.Name = tbName.Text;
+        Skill.Description = tbDescription.Text;
+        Skill.Notes = tbNotes.Text;
         _mainWindow.SaveSkill(Skill);
     }
 
     public void RemoveTag(Tag tag)
     {
         Skill.Tags.Remove(tag);
-        UpdatePanel();
+        UpdateControlView();
     }
 }

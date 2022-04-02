@@ -17,11 +17,11 @@
         </StackPanel>
         <StackPanel Margin="5">
             <Label>Description: </Label>
-            <TextBox Name="tbDescription" AcceptsReturn="True" MinLines="5" MinWidth="200" VerticalAlignment="Center"></TextBox>
+            <TextBox Name="tbDescription" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MinLines="5" MaxLines="10" MinWidth="200" VerticalAlignment="Center"></TextBox>
         </StackPanel>
         <StackPanel  Margin="5">
             <Label>Notes: </Label>
-            <TextBox Name="tbNotes" AcceptsReturn="True" MinLines="5" MinWidth="200" VerticalAlignment="Center"></TextBox>
+            <TextBox Name="tbNotes" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MinLines="5" MaxLines="10" MinWidth="200" VerticalAlignment="Center"></TextBox>
         </StackPanel>
         <GroupBox Header="Tags" Margin="5">
             <StackPanel Name="SkillTagStackPanel"></StackPanel>

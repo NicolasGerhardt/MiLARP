@@ -32,7 +32,7 @@ namespace MiLARP.UI
             UpdateSkillsList(_skillsRepo.GetAllSkills());
         }
 
-        private void UpdateSkillsList(IList<Skill> skills)
+        private void UpdateSkillsList(IList<Skill?> skills)
         {
             SkillsList.Items.Clear();
             SkillsDockPanel.Children.Clear();
@@ -80,7 +80,7 @@ namespace MiLARP.UI
             MessageBox.Show(text, caption, button, icon, MessageBoxResult.Yes);
         }
 
-        public void SaveSkill(Skill skill)
+        public void SaveSkill(Skill? skill)
         {
             UpdateSkillsList(skill.Id < 0 ? _skillsRepo.AddSkill(skill) : _skillsRepo.UpdateSkill(skill));
         }

@@ -5,10 +5,10 @@ namespace MiLARP.Infrastructure.Repositories;
 
 public class DummySkillsRepository : ISkillsRepository
 {
-    private List<Skill> _skills;
+    private List<Skill?> _skills;
     public DummySkillsRepository()
     {
-        _skills = new List<Skill>
+        _skills = new List<Skill?>
         {
             new Skill
             {
@@ -35,19 +35,19 @@ public class DummySkillsRepository : ISkillsRepository
         };
     }
 
-    public IList<Skill> GetAllSkills()
+    public IList<Skill?> GetAllSkills()
     {
         return _skills;
     }
 
-    public IList<Skill> AddSkill(Skill skill)
+    public IList<Skill?> AddSkill(Skill? skill)
     {
         skill.Id = _skills.Count;
         _skills.Add(skill);
         return _skills;
     }
 
-    public IList<Skill> UpdateSkill(Skill skill)
+    public IList<Skill?> UpdateSkill(Skill? skill)
     {
         var skillIndex = _skills.FindIndex(x => x.Id == skill.Id);
         if (skillIndex < 0)
@@ -58,7 +58,7 @@ public class DummySkillsRepository : ISkillsRepository
         return _skills;
     }
 
-    public IList<Skill> RemoveSkill(Skill skill)
+    public IList<Skill?> RemoveSkill(Skill skill)
     {
         var skillIndex = _skills.FindIndex(x => x.Id == skill.Id);
         _skills.Remove(_skills[skillIndex]);
