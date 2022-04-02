@@ -1,0 +1,26 @@
+﻿<Window x:Class="MiLARP.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiLARP.UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800">
+    <TabControl>
+        <TabItem Header="Players">Not Implemented</TabItem>
+        <TabItem Header="Characters">Not Implemented</TabItem>
+        <TabItem Header="Skills" IsSelected="True">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Width="150">
+                    <Button Name="AddSkill" Click="AddSkill_OnClick">Add Skill</Button>
+                    <Button Name="EditSkill" Click="EditSkill_OnClick">Edit Skill</Button>
+                    <Button Name="RemoveSkill" Click="RemoveSkill_OnClick">Remove Skill</Button>
+                </StackPanel>
+                <GroupBox Header="Skills:" MinWidth="200">
+                    <ListBox Name="SkillsList"></ListBox>
+                </GroupBox>
+            </StackPanel>
+        </TabItem>
+
+    </TabControl>
+</Window>

@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiLARP.Domain", "MiLARP.Domain\MiLARP.Domain.csproj", "{ECFE5E5C-EE41-4A0B-8BAE-6D4C22386A55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiLARP.Infrastructure", "MiLARP.Infrastructure\MiLARP.Infrastructure.csproj", "{37905721-BD62-48D9-9EB4-B3348257EC31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiLARP.Application", "MiLARP.Application\MiLARP.Application.csproj", "{EEF5D670-ABDA-4FBA-AD22-8732E13019DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiLARP.UI", "MiLARP.UI\MiLARP.UI.csproj", "{8AA14108-F851-431F-B294-1C5CA8A23D0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,17 @@ Global
 		{ECFE5E5C-EE41-4A0B-8BAE-6D4C22386A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECFE5E5C-EE41-4A0B-8BAE-6D4C22386A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECFE5E5C-EE41-4A0B-8BAE-6D4C22386A55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37905721-BD62-48D9-9EB4-B3348257EC31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37905721-BD62-48D9-9EB4-B3348257EC31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37905721-BD62-48D9-9EB4-B3348257EC31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37905721-BD62-48D9-9EB4-B3348257EC31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEF5D670-ABDA-4FBA-AD22-8732E13019DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF5D670-ABDA-4FBA-AD22-8732E13019DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF5D670-ABDA-4FBA-AD22-8732E13019DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF5D670-ABDA-4FBA-AD22-8732E13019DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AA14108-F851-431F-B294-1C5CA8A23D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA14108-F851-431F-B294-1C5CA8A23D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA14108-F851-431F-B294-1C5CA8A23D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA14108-F851-431F-B294-1C5CA8A23D0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

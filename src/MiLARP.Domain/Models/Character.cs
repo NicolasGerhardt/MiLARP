@@ -14,7 +14,7 @@ public class Character
             var hpTotal = Level;
             foreach (var skill in Skills)
             {
-                foreach (var modifyer in skill.Modifyers)
+                foreach (var modifyer in skill.Modifiers)
                 {
                     if (modifyer.Stat == StatType.HitPoint)
                     {
@@ -34,7 +34,7 @@ public class Character
             var apTotal = Level;
             foreach (var skill in Skills)
             {
-                foreach (var modifyer in skill.Modifyers)
+                foreach (var modifyer in skill.Modifiers)
                 {
                     if (modifyer.Stat == StatType.ActivePoint)
                     {
