@@ -1,7 +1,7 @@
 ﻿using MiLARP.Application.DataAccess;
 using MiLARP.Domain.Models;
 
-namespace MiLARP.Infrastructure.DataAccess;
+namespace MiLARP.Infrastructure.Repositories;
 
 public class DummySkillsRepository : ISkillsRepository
 {
@@ -12,25 +12,25 @@ public class DummySkillsRepository : ISkillsRepository
         {
             new Skill
             {
-                Id = 1,
+                Id = 0,
                 Name = "First Test Skill",
                 Description = "This is the Description",
                 Notes = "Here are some notes on the skill"
             },
             new Skill
             {
-                Id = 2,
+                Id = 1,
                 Name = "Second Test Skill",
                 Description = "This is the Description",
                 Notes = "Here are some notes on the skill"
             },
             new Skill
             {
-                Id = 3,
+                Id = 2,
                 Name = "First Test Spell",
                 Description = "This is the Description",
                 Notes = "Here are some notes on the skill",
-                Tags = new List<Tag> { new Tag { Type = "Spell" } }
+                Tags = new List<Tag> { new Tag { Text = "Spell" } }
             },
         };
     }
@@ -42,6 +42,7 @@ public class DummySkillsRepository : ISkillsRepository
 
     public IList<Skill> AddSkill(Skill skill)
     {
+        skill.Id = _skills.Count;
         _skills.Add(skill);
         return _skills;
     }

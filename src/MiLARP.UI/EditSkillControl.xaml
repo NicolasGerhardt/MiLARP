@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="MiLARP.UI.EditSkillControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MiLARP.UI"
+             mc:Ignorable="d">
+    <StackPanel Margin="5">
+        <Button Click="btnSave_OnClick" Margin="5">Save</Button>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label>Id: </Label>
+            <Label Name="lblId"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label>Name: </Label>
+            <TextBox Name="tbName" MinWidth="200" VerticalAlignment="Center"></TextBox>
+        </StackPanel>
+        <StackPanel Margin="5">
+            <Label>Description: </Label>
+            <TextBox Name="tbDescription" AcceptsReturn="True" MinLines="5" MinWidth="200" VerticalAlignment="Center"></TextBox>
+        </StackPanel>
+        <StackPanel  Margin="5">
+            <Label>Notes: </Label>
+            <TextBox Name="tbNotes" AcceptsReturn="True" MinLines="5" MinWidth="200" VerticalAlignment="Center"></TextBox>
+        </StackPanel>
+        <GroupBox Header="Tags" Margin="5">
+            <StackPanel Name="SkillTagStackPanel"></StackPanel>
+        </GroupBox>
+        <Button Click="btnSave_OnClick" Margin="5">Save</Button>
+    </StackPanel>
+</UserControl>

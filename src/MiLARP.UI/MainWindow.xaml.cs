@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MiLARP.Application.DataAccess;
 using MiLARP.Domain.Models;
-using MiLARP.Infrastructure.DataAccess;
+using MiLARP.Infrastructure.Repositories;
 
 namespace MiLARP.UI
 {
@@ -35,6 +35,7 @@ namespace MiLARP.UI
         private void UpdateSkillsList(IList<Skill> skills)
         {
             SkillsList.Items.Clear();
+            SkillsDockPanel.Children.Clear();
             foreach (var skill in skills)
             {
                 SkillsList.Items.Add(skill);
@@ -43,21 +44,15 @@ namespace MiLARP.UI
 
         private void AddSkill_OnClick(object sender, RoutedEventArgs e)
         {
-            AlertBox();
+            SkillsDockPanel.Children.Clear();
+            SkillsDockPanel.Children.Add(new EditSkillControl(this));
         }
 
         private void EditSkill_OnClick(object sender, RoutedEventArgs e)
         {
-            if (SkillsList.SelectedItem == null)
-            {
-                AlertBox("No skill selected");
-                return;
-            }
-
-            var selectedSkill = (Skill)SkillsList.SelectedItem;
-            MessageBox.Show(selectedSkill.ToString(), "Edit Skill", MessageBoxButton.OK, MessageBoxImage.None);
-            selectedSkill.Name += " Edited";
-            UpdateSkillsList(_skillsRepo.UpdateSkill(selectedSkill));
+            if (SkillsList.SelectedItem == null) return;
+            SkillsDockPanel.Children.Clear();
+            SkillsDockPanel.Children.Add(new EditSkillControl(this, (Skill)SkillsList.SelectedItem));
         }
 
         private void RemoveSkill_OnClick(object sender, RoutedEventArgs e)
@@ -83,6 +78,11 @@ namespace MiLARP.UI
             string caption = "Error";
             MessageBoxButton button = MessageBoxButton.OK;
             MessageBox.Show(text, caption, button, icon, MessageBoxResult.Yes);
+        }
+
+        public void SaveSkill(Skill skill)
+        {
+            UpdateSkillsList(skill.Id < 0 ? _skillsRepo.AddSkill(skill) : _skillsRepo.UpdateSkill(skill));
         }
     }
 }

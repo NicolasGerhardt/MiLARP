@@ -5,21 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiLARP.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800">
+        Title="MiLARP Character Builder" Height="800" Width="800">
     <TabControl>
         <TabItem Header="Players">Not Implemented</TabItem>
         <TabItem Header="Characters">Not Implemented</TabItem>
         <TabItem Header="Skills" IsSelected="True">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Width="150">
-                    <Button Name="AddSkill" Click="AddSkill_OnClick">Add Skill</Button>
-                    <Button Name="EditSkill" Click="EditSkill_OnClick">Edit Skill</Button>
-                    <Button Name="RemoveSkill" Click="RemoveSkill_OnClick">Remove Skill</Button>
-                </StackPanel>
-                <GroupBox Header="Skills:" MinWidth="200">
-                    <ListBox Name="SkillsList"></ListBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="Skills:" Grid.Column="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Button Name="AddSkill" Click="AddSkill_OnClick" Grid.Column="0" Grid.Row="0">Add Skill</Button>
+                        <Button Name="RemoveSkill" Click="RemoveSkill_OnClick" Grid.Column="1" Grid.Row="0">Remove Skill</Button>
+                        <ListBox Name="SkillsList" SelectionChanged="EditSkill_OnClick" Grid.ColumnSpan="2"
+                                 Grid.Column="0" Grid.Row="1">
+                        </ListBox>
+                    </Grid>
                 </GroupBox>
-            </StackPanel>
+                <GroupBox Header="Edit" Grid.Column="1">
+                    <DockPanel Name="SkillsDockPanel"></DockPanel>
+                </GroupBox>
+            </Grid>
         </TabItem>
 
     </TabControl>
