@@ -40,6 +40,11 @@ public class DummySkillsRepository : ISkillsRepository
         return _skills;
     }
 
+    public Skill? GetSkillById(int Id)
+    {
+        throw new NotImplementedException();
+    }
+
     public IList<Skill?> AddSkill(Skill? skill)
     {
         skill.Id = _skills.Count;

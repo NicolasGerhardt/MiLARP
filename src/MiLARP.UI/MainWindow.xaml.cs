@@ -28,7 +28,7 @@ namespace MiLARP.UI
         public MainWindow()
         {
             InitializeComponent();
-            _skillsRepo = new DummySkillsRepository();
+            _skillsRepo = new SkillsFileRepository("data");
             UpdateSkillsList(_skillsRepo.GetAllSkills());
         }
 
